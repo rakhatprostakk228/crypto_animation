@@ -1,0 +1,134 @@
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.main-screen {
+    width: 100vw;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-screen .container {
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.glow-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.background-rays {
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+}
+
+.buildings-image {
+    width: 100vw;
+    object-fit: cover;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.howto-section, .meet-section, .why-section {
+    width: 100vw;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.howto-container, .meet-container, .why-container {
+    min-width: 100%;
+    width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.howto-section .background-image,
+.why-section .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.meet-section .meet-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background: linear-gradient(135deg, #D1B8FF 0%, #8553E2 100%);
+    z-index: 1;
+}
+
+.howto-section {
+    background-color: #9370DB;
+    width: 100vw;
+    max-width: 100%;
+}
+
+.info-section {
+    width: 100vw;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+    .main-screen .container, .howto-container, .meet-container, .why-container {
+        width: 100vw;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-screen .container, .howto-container, .meet-container, .why-container {
+        width: 100vw;
+        max-width: 100%;
+    }
+    
+    .howto-section .background-image,
+    .why-section .background-image {
+        width: 100vw;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-screen .container, .howto-container, .meet-container, .why-container {
+        width: 100vw;
+        max-width: 100%;
+    }
+    
+    .howto-section .background-image,
+    .why-section .background-image {
+        width: 100vw;
+        max-width: 100%;
+    }
+}

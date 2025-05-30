@@ -1,0 +1,1385 @@
+@font-face {
+    font-family: 'SUPER BOOM';
+    src: url('img/SUPER\ BOOM.OTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'SUPER BOOM', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #87CEEB;
+    overflow-x: hidden;
+}
+
+.main-screen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Фон с лучами */
+.background-rays {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, rgba(135,206,235,0) 70%);
+    z-index: 1;
+}
+
+/* Социальные иконки */
+.social-icons {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 10;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Заголовок */
+.header-text {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #FFD700;
+    font-size: 36px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    letter-spacing: 2px;
+    -webkit-text-stroke: 1px #000;
+    white-space: nowrap;
+}
+
+/* Логотип */
+.logo {
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.logo-image {
+    width: 500px;
+}
+
+/* Персонажи */
+.characters {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+}
+
+.dog {
+    position: absolute;
+    width: 400px;
+    left: 210px;
+    top: 130px;
+}
+
+.pepe {
+    position: absolute;
+    width: 400px;
+    right: 100px;
+    top: 130px;
+}
+
+/* Здания */
+.buildings {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 6;
+}
+
+.buildings-image {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    min-height: 250px;
+    object-fit: cover;
+}
+
+/* Монеты */
+.coins {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 7;
+}
+
+.coin {
+    position: absolute;
+}
+
+.coin-left {
+    width: 200px;
+    left: 40px;
+    top: 70px;
+}
+
+.coin-right {
+    width: 130px;
+    right: 40px;
+    top: 30px;
+}
+
+.small-coin-left {
+    width: 130px;
+    left: 100px;
+    top: 430px;
+}
+
+.small-coin-right {
+    width: 130px;
+    right: 130px;
+    top: 600px;
+}
+
+.play-button-container {
+    position: absolute;
+    bottom: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 9;
+}
+
+.play-button {
+    width: 300px;
+    cursor: pointer;
+}
+
+.ca-text {
+    color: #00FFFF;
+    font-family: 'SUPER BOOM', sans-serif;
+    font-size: 44px;
+    transform: skew(-0deg);
+    text-shadow: 
+        -4px -4px 0 #03535E,  
+         4px -4px 0 #03535E,
+        -4px  4px 0 #03535E,
+         4px  4px 0 #03535E,
+        -5px -5px 0 #03535E,  
+         5px -5px 0 #03535E,
+        -5px  5px 0 #03535E,
+         5px  5px 0 #03535E,
+         5px  5px 3px rgba(0,0,0,0.5);
+    letter-spacing: 2px;
+    padding-top: 20px;
+}
+
+/* Заднее свечение */
+.background-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0.7;
+}
+
+.glow-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #9370DB; /* Фиолетовый фон как на изображении */
+    padding: 50px 0;
+    z-index: 20;
+    overflow: hidden;
+}
+
+.info-container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 600px;
+}
+
+/* Фоновое изображение торгового центра */
+.info-section {
+    background: url('img2/background.png') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.mall-background {
+    display: none; /* Скрываем старый элемент с фоном */
+}
+
+.info-left {
+    flex: 4;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 50px 0 0 50px;
+    z-index: 2;
+}
+
+.info-logo {
+    width: 100%;
+    max-width: 500px;
+}
+
+.info-right {
+    flex: 6;
+    position: relative;
+    z-index: 3;
+}
+
+.info-bubble {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin-top: 40px;
+}
+
+.bubble-background {
+    position: relative; /* Изменено с absolute на relative */
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    top: 100%;
+    left: 20%;
+}
+
+.bubble-content {
+    position: absolute;
+    z-index: 2;
+    top: 45%;
+    left: 75%;
+    transform: translate(-50%, -50%); /* Центрирование содержимого */
+    width: 70%; /* Сужаем немного ширину контента */
+    text-align: center; /* Центрируем текст */
+}
+
+.info-text {
+    font-family: 'SUPER BOOM', sans-serif;
+    color: #FFFFFF;
+    font-size: 28px;
+    line-height: 1.4;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);
+}
+
+.info-character {
+    position: absolute;
+    bottom: 50%; /* Уменьшите значение с -25% до -15% или даже меньше */
+    left: -10%;
+    width: 350px;
+    max-width: 400px;
+    z-index: 4;
+}
+
+/* Стили для монет */
+.info-coin {
+    position: absolute;
+    z-index: 3;
+}
+
+.mid-coin {
+    width: 200px;
+    bottom: 20%;
+    right: 50%;
+    animation: floatCoin 5s ease-in-out infinite;
+}
+
+.right-coin {
+    width: 120px;
+    top: 0%;
+    right: 0%;
+    animation: floatCoin 6s ease-in-out infinite 1s;
+}
+
+.right-big-coin {
+    width: 250px;
+    bottom: 30%;
+    right: -10%;
+    animation: floatCoin 7s ease-in-out infinite 0.5s;
+}
+
+.white-shape {
+    position: absolute;
+    width: 40%;
+    height: auto;
+    top: 10%;
+    right: 0;
+    z-index: 1;
+}
+
+@keyframes floatCoin {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+/* Анимации */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(15px) rotate(-5deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.bouncing {
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+.pulsing {
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.pulsing-button {
+    animation: buttonPulse 2s ease-in-out infinite;
+}
+
+/* Стили для страницы How to Play */
+
+.howto-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #9370DB;
+    overflow: hidden;
+}
+
+.howto-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Фоновое изображение */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Заголовок */
+.howto-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    z-index: 3;
+}
+
+.howto-logo {
+    width: 500px;
+    max-width: 80%;
+}
+
+.question-marks {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20%;
+}
+
+.question-mark {
+    width: 150px;
+    animation: float 3s infinite ease-in-out; /* Ускорено с 5s до 3s */
+}
+
+.left-mark {
+    margin-left: -30px;
+    animation-delay: 0.3s; /* Ускорено с 0.5s до 0.3s */
+}
+
+.right-mark {
+    margin-right: -30px;
+    animation-delay: 0.6s; /* Ускорено с 1s до 0.6s */
+}
+
+/* Персонажи */
+.howto-characters {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.pepe-bag {
+    position: absolute;
+    width: 300px;
+    top: 10%;
+    right: 5%;
+    animation: float 4s infinite ease-in-out; /* Ускорено с 6s до 4s */
+}
+
+.dog-bag {
+    position: absolute;
+    width: 300px;
+    top: 0px;
+    left: 3%;
+    animation: float 4s infinite ease-in-out 0.5s; /* Ускорено с 7s до 4s */
+}
+
+/* Инструкции по игре */
+.instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    z-index: 3;
+    position: relative;
+}
+
+.instruction-button {
+    width: 100%;
+    transition: transform 0.2s ease; /* Ускорено с 0.3s до 0.2s */
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.instruction-button:hover {
+    transform: scale(1.15) !important; /* Увеличено с 1.05 до 1.15 */
+}
+
+.button-click {
+    transform: scale(0.9) !important; /* Усилено сжатие с 0.95 до 0.9 */
+    transition: transform 0.1s ease;
+}
+
+.instruction-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Навигационные кнопки */
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    z-index: 3;
+    position: relative;
+}
+
+.nav-button {
+    padding: 12px 30px;
+    background-color: #FFD700;
+    color: #000;
+    border: 3px solid #006400;
+    border-radius: 10px;
+    font-family: 'SUPER BOOM', sans-serif;
+    font-size: 22px;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease; /* Ускорено с 0.3s до 0.2s */
+}
+
+.nav-button:hover {
+    transform: scale(1.1);
+    background-color: #FFA500;
+}
+
+/* Анимации */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Стили для страницы Meet The Stars */
+
+.meet-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.meet-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    z-index: 2;
+}
+
+/* Фоновый градиент */
+.meet-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #D1B8FF, #8553E2); /* Градиент на основе указанных цветов #D1B8FF и #8553E2 */
+    z-index: 1;
+}
+
+/* Заголовок */
+.meet-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    z-index: 3;
+}
+
+.meet-logo {
+    width: 500px;
+    max-width: 80%;
+    z-index: 3;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 300px;
+    top: 0;
+    z-index: 3;
+}
+
+.star {
+    width: 130px;
+    animation: float 5s infinite ease-in-out;
+}
+
+.star-left {
+    animation-delay: 0.3s;
+}
+
+.star-right {
+    animation-delay: 1.2s;
+}
+
+/* Карточки знаменитостей (готовые изображения) */
+.celebrity-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 3;
+}
+
+.celebrity-image-card {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.celebrity-image-card:hover {
+    transform: scale(1.1);
+}
+
+.celeb-card-img {
+    width: 250px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+/* Монеты */
+.coins {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.coin {
+    position: absolute;
+    animation: float 6s infinite ease-in-out;
+}
+
+.small-left {
+    width: 140px;
+    top: 70%;
+    left: 2%;
+    animation-delay: 0.2s;
+}
+
+.big-left {
+    width: 230px;
+    top: 15%;
+    left: 5%;
+    animation-delay: 1.5s;
+}
+
+.small-right {
+    width: 140px;
+    top: 80%;
+    right: 12%;
+    animation-delay: 1s;
+}
+
+.big-right {
+    width: 150px;
+    top: 20%;
+    right: 4%;
+    animation-delay: 0.7s;
+}
+
+.blur1 {
+    width: 80px;
+    top: 50%;
+    right: 3%;
+    animation-delay: 1s;
+}
+
+.blur2 {
+    width: 80px;
+    top: 40%;
+    left: 3%;
+    animation-delay: 1s;
+}
+
+/* Навигационные кнопки */
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+    z-index: 3;
+}
+
+.nav-button {
+    padding: 12px 30px;
+    background-color: #FFD700;
+    color: #000;
+    border: 3px solid #006400;
+    border-radius: 10px;
+    font-family: 'SUPER BOOM', sans-serif;
+    font-size: 22px;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+}
+
+.nav-button:hover {
+    transform: scale(1.1);
+    background-color: #FFA500;
+}
+
+/* Анимации */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(15px) rotate(-5deg);
+    }
+}
+
+/* Стили для страницы Why Play? с исправленным классом для социальных иконок */
+
+.why-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.why-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Фоновое изображение */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Контейнер логотипа */
+.logo-container {
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    z-index: 3;
+}
+
+.why-logo {
+    width: 450px;
+    max-width: 80%;
+    transition: transform 0.5s ease;
+}
+
+/* Анимация пульсации для логотипа */
+.pulsing {
+    animation: pulse 3s infinite ease-in-out;
+}
+
+/* Список причин - справа */
+.reasons-list {
+    position: absolute;
+    right: 5%;
+    top: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 50%;
+    max-width: 650px;
+    z-index: 3;
+}
+
+.reason-item {
+    width: 100%;
+    transition: transform 0.2s ease; /* Ускорено с 0.3s до 0.2s */
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.reason-item:hover {
+    transform: scale(1.1); /* Увеличение при наведении */
+}
+
+.reason-image {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Кнопка Play - внизу справа */
+.play-button-container2 {
+    position: absolute;
+    bottom: 15%;
+    right: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+}
+
+.play-button2 {
+    width: 300px;
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Ускорена анимация */
+}
+
+.play-button2:hover {
+    transform: scale(1.15) !important; /* Увеличение при наведении */
+}
+
+/* Анимация пульсации для кнопки */
+.pulsing-button {
+    animation: buttonPulse 4s infinite ease-in-out;
+}
+
+.ca-text2 {
+    position: absolute;
+    right: 35%;
+    bottom: 5%;
+    color: #00FFFF;
+    font-family: 'SUPER BOOM', sans-serif;
+    font-size: 40px;
+    transform: skew(-0deg);
+    text-shadow: 
+        -4px -4px 0 #03535E,  
+         4px -4px 0 #03535E,
+        -4px  4px 0 #03535E,
+         4px  4px 0 #03535E,
+        -5px -5px 0 #03535E,  
+         5px -5px 0 #03535E,
+        -5px  5px 0 #03535E,
+         5px  5px 0 #03535E,
+         5px  5px 3px rgba(0,0,0,0.5);
+    letter-spacing: 2px;
+    z-index: 3;
+}
+
+/* Новый класс для социальных иконок на странице Why */
+.why-social-icons {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    display: flex;
+    gap: 15px;
+    z-index: 3;
+}
+
+.why-social-link {
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.why-social-link:hover {
+    transform: scale(1.2); /* Простое увеличение при наведении */
+}
+
+.why-social-img {
+    width: 60px;
+    height: 60px;
+    display: block;
+}
+
+/* Анимации */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    80% {
+        transform: scale(1.05);
+    }
+}
+
+/* Исправления для z-index элементов на первой странице */
+.buildings {
+    z-index: 5 !important; /* Здания теперь на среднем слое */
+}
+
+.coins {
+    z-index: 7 !important; /* Монеты над зданиями */
+}
+
+.characters {
+    z-index: 4 !important; /* Персонажи под зданиями */
+}
+
+/* Позиционирование персонажей ниже и всегда за зданием */
+.dog {
+    top: auto !important;
+    bottom: 200px !important;
+}
+
+.pepe {
+    top: auto !important;
+    bottom: 200px !important;
+}
+
+/* Адаптивное позиционирование для разных устройств */
+@media (max-width: 1199px) {
+    .dog {
+        width: 300px !important;
+        left: 150px !important;
+        bottom: 150px !important;
+    }
+    
+    .pepe {
+        width: 300px !important;
+        right: 80px !important;
+        bottom: 150px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .dog {
+        width: 200px !important;
+        left: 30px !important;
+        bottom: 120px !important;
+    }
+    
+    .pepe {
+        width: 200px !important;
+        right: 30px !important;
+        bottom: 120px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .dog {
+        width: 150px !important;
+        left: 20px !important;
+        bottom: 100px !important;
+    }
+    
+    .pepe {
+        width: 150px !important;
+        right: 20px !important;
+        bottom: 100px !important;
+    }
+}
+
+/* 
+ * Исправление позиционирования элементов на первой странице
+ * 1. Монетки поверх здания
+ * 2. Персонажи (dog и pepe) позиционированы ниже и всегда за зданием
+ */
+
+/* Исправление z-index для разных элементов */
+.buildings {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 5; /* Уменьшаем z-index зданий */
+}
+
+.coins {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 7; /* Оставляем монеты на z-index 7, выше зданий */
+}
+
+.characters {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 4; /* Убеждаемся, что персонажи за зданиями */
+}
+
+/* Позиционирование персонажей ниже */
+.dog {
+    position: absolute;
+    width: 400px;
+    left: 230px !important;
+    bottom: 270px !important; 
+    top: auto; /* Убираем top позиционирование */
+}
+
+.pepe {
+    position: absolute;
+    width: 400px;
+    right: 100px;
+    bottom: 270px !important; /* Позиционируем от низа вместо top */
+    top: auto; /* Убираем top позиционирование */
+}
+
+/* Адаптивные стили для разных размеров экрана */
+
+/* Большие устройства (от 1200px и выше) */
+@media (min-width: 1200px) {
+    .dog {
+        width: 400px;
+        left: 210px;
+        bottom: 250px; /* Увеличено с 200px до 250px */
+    }
+    
+    .pepe {
+        width: 400px;
+        right: 100px;
+        bottom: 250px; /* Увеличено с 200px до 250px */
+    }
+}
+
+/* Средние устройства (от 768px до 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .dog {
+        width: 300px;
+        left: 150px;
+        bottom: 150px;
+    }
+    
+    .pepe {
+        width: 300px;
+        right: 80px;
+        bottom: 150px;
+    }
+}
+
+/* Маленькие устройства (до 767px) */
+@media (max-width: 767px) {
+    .dog {
+        width: 200px;
+        left: 30px;
+        bottom: 120px;
+    }
+    
+    .pepe {
+        width: 200px;
+        right: 30px;
+        bottom: 120px;
+    }
+}
+
+/* Очень маленькие устройства (до 480px) */
+@media (max-width: 480px) {
+    .dog {
+        width: 150px;
+        left: 20px;
+        bottom: 100px;
+    }
+    
+    .pepe {
+        width: 150px;
+        right: 20px;
+        bottom: 100px;
+    }
+}
+
+.smania-ribbons-container {
+    position: absolute;
+    width: 100vw;
+    max-width: 100%;
+    height: 120px; /* Уменьшена высота с 140px до 120px */
+    overflow: hidden;
+    z-index: 9999;
+    background: transparent;
+    left: 0;
+    pointer-events: none;
+}
+
+/* Стили для лент */
+.smania-ribbon {
+    position: absolute;
+    width: 200%; /* Увеличена ширина для лучшего эффекта бегущей строки */
+    left: 0;
+    height: 45px; /* Уменьшена высота с 50px до 45px */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: 'SUPER BOOM', sans-serif;
+    font-size: 30px; /* Уменьшен размер шрифта с 32px до 30px */
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 10000;
+}
+
+/* Верхняя лента */
+.smania-ribbon-1 {
+    top: 25px; /* Сдвинута выше с 30px до 25px */
+    background-color: #FFD700;
+    transform: skewY(-3deg);
+    animation: moveRibbon1 30s linear infinite; /* Анимация движения ленты */
+}
+
+/* Нижняя лента */
+.smania-ribbon-2 {
+    bottom: 25px; /* Сдвинута выше с 30px до 25px */
+    background-color: rgba(255, 215, 0, 0.7);
+    transform: skewY(3deg);
+    animation: moveRibbon2 30s linear infinite; /* Анимация движения ленты */
+}
+
+/* Текст внутри лент */
+.ribbon-content {
+    display: flex;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Монетки для украшения */
+.ribbon-coin {
+    position: absolute;
+    width: 65px; /* Уменьшен размер с 70px до 65px */
+    height: 65px;
+    z-index: 10001;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
+    pointer-events: auto;
+}
+
+.ribbon-coin-1 {
+    top: 5px;
+    right: 15%;
+    animation: coinFloat 4s ease-in-out infinite;
+}
+
+.ribbon-coin-2 {
+    bottom: 5px;
+    left: 10%;
+    animation: coinFloat 4s ease-in-out infinite 0.5s;
+}
+
+/* Анимация для движения лент (как было изначально) */
+@keyframes moveRibbon1 {
+    0% {
+        transform: translateX(0) skewY(-3deg);
+    }
+    100% {
+        transform: translateX(-50%) skewY(-3deg);
+    }
+}
+
+@keyframes moveRibbon2 {
+    0% {
+        transform: translateX(-50%) skewY(3deg);
+    }
+    100% {
+        transform: translateX(0) skewY(3deg);
+    }
+}
+
+/* Анимация для монет */
+@keyframes coinFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(10deg);
+    }
+}
+
+/* Позиционирование лент между секциями */
+.main-screen + .smania-ribbons-container,
+.info-section + .smania-ribbons-container,
+.howto-section + .smania-ribbons-container,
+.meet-section + .smania-ribbons-container {
+    margin-top: -60px; /* Изменено с -70px до -60px */
+    margin-bottom: -60px;
+}
+
+/* Адаптивность для разных размеров экрана */
+@media (max-width: 768px) {
+    .smania-ribbon {
+        font-size: 25px; /* Уменьшен с 28px до 25px */
+        height: 40px;
+    }
+    .ribbon-coin {
+        width: 55px; /* Уменьшен с 60px до 55px */
+        height: 55px;
+    }
+}
+
+@media (max-width: 480px) {
+    .smania-ribbons-container {
+        height: 100px; /* Уменьшен с 120px до 100px */
+    }
+    .smania-ribbon {
+        font-size: 20px; /* Уменьшен с 24px до 20px */
+        height: 35px; /* Уменьшен с 40px до 35px */
+    }
+    .ribbon-coin {
+        width: 45px; /* Уменьшен с 50px до 45px */
+        height: 45px;
+    }
+}
+
+/* Исправления для больших экранов */
+
+/* 1. Поднимаем персонажей на первой странице выше */
+@media (min-width: 1200px) {
+    .dog {
+        position: absolute !important;
+        width: 400px !important;
+        left: 210px !important;
+        bottom: 350px !important; /* Увеличено с 250px до 350px */
+        top: auto !important; /* Убираем top-позиционирование */
+    }
+    
+    .pepe {
+        position: absolute !important;
+        width: 400px !important;
+        right: 100px !important;
+        bottom: 350px !important; /* Увеличено с 250px до 350px */
+        top: auto !important; /* Убираем top-позиционирование */
+    }
+}
+
+/* 2. Увеличиваем изображения на пятой странице (Why Play) */
+@media (min-width: 1200px) {
+    .reason-image {
+        width: 110% !important; /* Увеличиваем размер изображений на 10% */
+        max-width: 110% !important;
+    }
+    
+    .play-button2 {
+        width: 350px !important; /* Увеличиваем кнопку с 300px до 350px */
+    }
+    
+    .why-social-img {
+        width: 70px !important; /* Увеличиваем иконки соцсетей с 60px до 70px */
+        height: 70px !important;
+    }
+}
+
+/* 3. Опускаем персонажа на второй странице (Info) */
+@media (min-width: 1200px) {
+    .info-character {
+        position: absolute !important;
+        bottom: -20% !important; /* Уменьшаем с 50% до -20%, чтобы персонаж был ниже */
+        left: -10% !important;
+        width: 350px !important;
+        max-width: 400px !important;
+        z-index: 4 !important;
+    }
+}
+
+/* Дополнительные улучшения для больших экранов */
+@media (min-width: 1440px) {
+    /* Персонажи на первой странице еще выше для очень больших экранов */
+    .dog {
+        bottom: 400px !important;
+        width: 450px !important;
+    }
+    
+    .pepe {
+        bottom: 400px !important;
+        width: 450px !important;
+    }
+    
+    /* Персонаж на второй странице еще ниже для очень больших экранов */
+    .info-character {
+        bottom: -30% !important;
+        width: 400px !important;
+    }
+    
+    /* Еще больше увеличиваем изображения на пятой странице для очень больших экранов */
+    .reason-image {
+        width: 120% !important;
+        max-width: 120% !important;
+    }
+    
+    .play-button2 {
+        width: 400px !important;
+    }
+}
+
+/* Исправление z-index для гарантии правильного отображения */
+.buildings {
+    z-index: 6 !important;
+}
+
+.characters {
+    z-index: 4 !important;
+}
+
+.coins {
+    z-index: 7 !important;
+}
